@@ -1,14 +1,14 @@
-import { createBrowserRouter } from "react-router-dom";
-import NeedAuth from "../pages/NeedAuth";
-import Login from "../pages/login";
-import Main from "../pages/main";
-import Center from "../pages/center";
+import { createBrowserRouter, createHashRouter } from 'react-router-dom'
+import NeedAuth from '../pages/NeedAuth'
+import Login from '../pages/login'
+import Main from '../pages/main'
+import Center from '../pages/center'
 
-import { PokemonListLoader } from "../pages/main";
+import { PokemonListLoader } from '../pages/main'
 
 export const routes = [
   {
-    path: "/",
+    path: '/',
     element: <NeedAuth />,
     meta: {
       auth: false,
@@ -16,32 +16,32 @@ export const routes = [
     children: [
       {
         index: true,
-        path: "",
+        path: '',
         element: <Main />,
         loader: PokemonListLoader,
         meta: {
-          title: "主页",
+          title: '主页',
           auth: false,
         },
       },
       {
-        path: "login",
+        path: 'login',
         element: <Login />,
         meta: {
-          title: "登录",
+          title: '登录',
           auth: false,
         },
       },
       {
-        path: "center",
+        path: 'center',
         element: <Center />,
         meta: {
-          title: "个人中心",
+          title: '个人中心',
           auth: true,
         },
       },
     ],
   },
-];
-const router = createBrowserRouter(routes);
-export default router;
+]
+const router = createHashRouter(routes)
+export default router
