@@ -1,10 +1,10 @@
 import { createBrowserRouter, createHashRouter } from 'react-router-dom'
 import NeedAuth from '../pages/NeedAuth'
 import Login from '../pages/login'
-import Main from '../pages/main'
+import Main, { PokemonListLoader } from '../pages/main'
 import Center from '../pages/center'
-
-import { PokemonListLoader } from '../pages/main'
+import Detail, { getPokemonDetail } from '../pages/detail'
+import Error from '../pages/error'
 
 export const routes = [
   {
@@ -33,6 +33,15 @@ export const routes = [
         },
       },
       {
+        path: 'detail/:name',
+        element: <Detail />,
+        loader: getPokemonDetail,
+        meta: {
+          title: '口袋怪兽详情',
+          auth: true,
+        },
+      },
+      {
         path: 'center',
         element: <Center />,
         meta: {
@@ -42,8 +51,16 @@ export const routes = [
       },
     ],
   },
+  {
+    path: '*',
+    element: <Error />,
+    meta: {
+      title: '404',
+      auth: false,
+    },
+  },
 ]
-const router = createHashRouter(routes,{
-  basename:'/'
+const router = createHashRouter(routes, {
+  basename: '/',
 })
 export default router

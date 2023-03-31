@@ -2,6 +2,8 @@ import { ChangeEvent, ChangeEventHandler, FormEvent, useRef, useState } from 're
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Logo from '../assets/logo.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHouseChimney } from '@fortawesome/free-solid-svg-icons'
 
 type TField = 'Username' | 'Password'
 type TEvent = ChangeEvent<HTMLInputElement>
@@ -49,6 +51,9 @@ export default function login() {
   }
   return (
     <div className="Login">
+      <div className="back" onClick={() => navigate('/', { replace: true })}>
+        <FontAwesomeIcon className="Icon" icon={faHouseChimney} />
+      </div>
       <img className="logo" src={Logo} alt="" />
       <div className="form">
         <input

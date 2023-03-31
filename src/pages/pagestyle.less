@@ -6,14 +6,16 @@
   flex-wrap: wrap;
   .Pokemon-Items{
     width: 48%;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background: #f0f5e5;
     margin: 5px 3px;
-    .default-img{
-      height: 100%;
+    .question{
+      font-size: 40px;
+      color: #999;
     }
     .Pokemon-name{
       width: 100%;
@@ -27,7 +29,26 @@
 .Login{
   width: 100vw;
   height: 100vh;
-  padding-top: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  .Icon{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    color: #fff;
+    background: #f7ce46;
+    padding: 10px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .3s linear;
+    &:hover{
+      background: #ed3321!important;
+    }
+  }
+ 
   .logo{
     width: 200px;
     display: block;
@@ -110,6 +131,18 @@
   }
 }
 
+.Detail{
+  .detail-img{
+    width: 100%;
+  }
+  .name{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
 .Footer{
   display: flex;
   align-items: center;
@@ -131,4 +164,116 @@
     color: #ffffff;
     background: #f7ce46;
   }
+}
+
+.ErrorPage{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
+  position: relative;
+  .back{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    .home{
+      padding: 10px;
+      border-radius: 8px;
+      background: #fb8b05;
+      color: #fff;
+    }
+  }
+  h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 6rem;
+    position: absolute;
+    margin: 0 auto;
+    color: #fb8b05;
+    font-weight: bold;
+}
+h1:before {
+    content: attr(data-t);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,.34em);
+    height: .1em;
+    line-height: .5em;
+    width: 100%;
+    animation: scan .5s ease-in-out 275ms infinite alternate,glitch-anim .3s ease-in-out infinite alternate;
+    overflow: hidden;
+    opacity: .7;
+}
+h1:after {
+    content: attr(data-t);
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translate(-50%,.34em);
+    height: .5em;
+    line-height: .1em;
+    width: 100%;
+    animation: scan 665ms ease-in-out .59s infinite alternate,glitch-anim .3s ease-in-out infinite alternate;
+    overflow: hidden;
+    opacity: .8
+}
+@keyframes glitch-anim {
+    0% {
+        clip: rect(32px,9999px,28px,0)
+    }
+
+    10% {
+        clip: rect(13px,9999px,37px,0)
+    }
+
+    20% {
+        clip: rect(45px,9999px,33px,0)
+    }
+
+    30% {
+        clip: rect(31px,9999px,94px,0)
+    }
+
+    40% {
+        clip: rect(88px,9999px,98px,0)
+    }
+
+    50% {
+        clip: rect(9px,9999px,98px,0)
+    }
+
+    60% {
+        clip: rect(37px,9999px,17px,0)
+    }
+
+    70% {
+        clip: rect(77px,9999px,34px,0)
+    }
+
+    80% {
+        clip: rect(55px,9999px,49px,0)
+    }
+
+    90% {
+        clip: rect(10px,9999px,2px,0)
+    }
+
+    to {
+        clip: rect(35px,9999px,53px,0)
+    }
+}
+@keyframes scan {
+    0%,20%,to {
+        height: 0;
+        transform: translate(-50%,.44em)
+    }
+
+    10%,15% {
+        height: 1em;
+        line-height: .2em;
+        transform: translate(-55%,.09em)
+    }
+}
 }
