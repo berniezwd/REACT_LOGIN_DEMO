@@ -8,6 +8,7 @@ const NeedAuth: FC = (props: Props) => {
   const localtion = useLocation();
   const isLogin = useSelector((state: any) => state.userInfo.isLogin);
   const mathchs = matchRoutes(routes, localtion);
+  console.log('location',location)
 
   // 重定向地址
   const preLocation = {
