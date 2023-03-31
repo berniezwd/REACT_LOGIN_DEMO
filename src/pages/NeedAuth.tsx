@@ -12,7 +12,7 @@ const NeedAuth: FC = (props: Props) => {
 
   // 重定向地址
   const preLocation = {
-    pathname: location.pathname,
+    pathname: location.hash,
   };
 
   // 判断是否需要登录
